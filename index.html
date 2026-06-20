@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網球體能・週課表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D1218;--surface:#161D26;--surface-2:#1C2530;--line:#28323F;
+    --ink:#EAF0F6;--muted:#8C99A8;--easy:#38BDF8;--mid:#34D399;--hard:#F43F5E;
+    --amber:#FBBF24;--orange:#FB923C;--rest:#56616F;
+    --disp:'Archivo',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+  .wrap{max-width:560px;margin:0 auto;padding:0 18px}
+
+  header{padding:34px 0 8px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  h1{font-family:var(--disp);font-weight:900;font-size:40px;line-height:.96;letter-spacing:-.02em}
+  h1 .accent{color:var(--hard)}
+  .thesis{margin-top:14px;font-size:15px;color:var(--muted);max-width:42ch}
+  .thesis b{color:var(--ink);font-weight:600}
+
+  .spectrum{margin:30px 0 8px}
+  .spectrum-bar{position:relative;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--easy) 0%,var(--mid) 46%,var(--amber) 66%,var(--orange) 82%,var(--hard) 100%);margin:46px 0 40px}
+  .marker{position:absolute;top:50%;transform:translate(-50%,-50%)}
+  .marker .dot{width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--bg);box-shadow:0 0 0 1.5px rgba(255,255,255,.25)}
+  .marker .lab{position:absolute;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;white-space:nowrap;color:var(--ink)}
+  .marker.up .lab{bottom:24px}
+  .marker.down .lab{top:24px}
+  .spectrum-ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .spectrum-ends .l{color:var(--easy)}
+  .spectrum-ends .r{color:var(--hard)}
+
+  section{margin-top:42px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+  .sec-num{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  h2{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.01em}
+
+  .principle{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line)}
+  .principle:last-child{border-bottom:1px solid var(--line)}
+  .p-tag{flex:none;width:52px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding-top:3px}
+  .p-tag.easy{color:var(--easy)} .p-tag.mid{color:var(--mid)} .p-tag.hard{color:var(--hard)} .p-tag.fuel{color:var(--amber)}
+  .principle p{font-size:14.5px}
+  .principle b{font-weight:600}
+
+  .day{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:12px;padding:13px 14px;background:var(--surface);border-radius:11px;margin-bottom:8px;border-left:4px solid var(--rest)}
+  .day.easy{border-color:var(--easy)} .day.mid{border-color:var(--mid)} .day.hard{border-color:var(--hard)}
+  .day .d{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--muted)}
+  .day.hard .d{color:var(--hard)}
+  .day .act{font-weight:600;font-size:15px}
+  .day .role{font-size:12.5px;color:var(--muted);margin-top:1px}
+  .day .pill{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;background:var(--surface-2);color:var(--muted)}
+  .day.easy .pill{color:var(--easy)} .day.mid .pill{color:var(--mid)} .day.hard .pill{color:var(--hard)}
+
+  .ex{background:var(--surface);border-radius:13px;padding:15px 16px;margin-bottom:9px;border:1px solid var(--line)}
+  .ex-name{font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:-.01em}
+  .ex-cue{font-size:13px;color:var(--muted);margin-top:5px}
+  .ex-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+  .ctrl{min-width:0}
+  .ctrl.full{grid-column:1 / -1}
+  .ctrl-label{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .stepper{display:flex;align-items:center;justify-content:space-between;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:4px;gap:4px}
+  .st-btn{width:40px;height:40px;flex:none;border:none;border-radius:8px;background:var(--bg);color:var(--ink);font-family:var(--disp);font-weight:700;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none}
+  .st-btn:active{background:var(--hard);color:#fff}
+  .st-mid{display:flex;align-items:baseline;gap:2px;justify-content:center;flex:1;min-width:0}
+  .st-val{font-family:var(--mono);font-weight:700;font-size:18px;color:var(--ink)}
+  .stepper.wt .st-val{color:var(--hard)}
+  .stepper.core .st-val{color:var(--mid)}
+  .st-unit{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .ex-last{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:11px;padding-top:10px;border-top:1px dashed var(--line)}
+  .ex-last b{color:var(--easy);font-weight:700}
+  .ex-video{display:inline-flex;align-items:center;gap:8px;margin-top:11px;font-family:var(--mono);font-size:12px;text-decoration:none;border:1px solid var(--line);padding:8px 13px;border-radius:9px;transition:border-color .15s}
+  .ex-video:hover,.ex-video:focus-visible{border-color:var(--easy)}
+  .ex-video .tri{color:var(--hard);font-size:10px}
+  .ex-video .lbl{color:var(--easy)}
+
+  .done-btn{margin-top:16px;width:100%;background:var(--hard);border:none;color:#fff;font-family:var(--disp);font-weight:700;font-size:15px;padding:15px;border-radius:11px;cursor:pointer;-webkit-tap-highlight-color:transparent;letter-spacing:.02em}
+  .done-btn:active{filter:brightness(.9)}
+  .done-btn.saved{background:var(--mid)}
+  .reset-btn{margin-top:9px;width:100%;background:none;border:1px dashed var(--line);color:var(--muted);font-family:var(--mono);font-size:12px;padding:11px;border-radius:10px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .reset-btn.armed{border-color:var(--hard);color:var(--hard);border-style:solid}
+
+  .rulebox{background:linear-gradient(180deg,rgba(244,63,94,.10),rgba(244,63,94,.02));border:1px solid rgba(244,63,94,.30);border-radius:13px;padding:16px 17px;margin-top:14px}
+  .rulebox h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--hard);margin-bottom:12px;font-weight:700}
+  .rulebox ul{list-style:none}
+  .rulebox li{font-size:14px;padding:6px 0 6px 20px;position:relative}
+  .rulebox li::before{content:"›";position:absolute;left:2px;color:var(--hard);font-weight:700}
+  .rulebox b{font-weight:600}
+
+  .tm{background:var(--surface);border-radius:13px;padding:17px 17px 5px;margin-bottom:12px;border:1px solid var(--line);border-top:4px solid var(--easy)}
+  .tm.alt{border-top-color:var(--orange)}
+  .tm-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .tm-kind{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:rgba(56,189,248,.14);color:var(--easy)}
+  .tm.alt .tm-kind{background:rgba(251,146,60,.14);color:var(--orange)}
+  .tm-title{font-family:var(--disp);font-weight:700;font-size:17px}
+  .tm-target{font-family:var(--mono);font-size:13px;color:var(--ink);margin:8px 0 14px}
+  .tm-target span{color:var(--easy);font-weight:700}
+  .tm.alt .tm-target span{color:var(--orange)}
+  .setting{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+  .setting .k{flex:none;width:74px;font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:2px;text-transform:uppercase;letter-spacing:.04em}
+  .setting .v{font-size:14px}
+  .setting .v b{font-family:var(--mono)}
+
+  .dash{display:grid;gap:9px}
+  .metric{display:flex;gap:13px;align-items:flex-start;background:var(--surface);border-radius:11px;padding:14px 15px}
+  .metric .ico{font-family:var(--disp);font-weight:900;font-size:15px;color:var(--mid);flex:none;width:22px;text-align:center}
+  .metric .mt{font-weight:600;font-size:14.5px}
+  .metric .md{font-size:13px;color:var(--muted);margin-top:2px}
+  .dash-note{font-size:13px;color:var(--muted);margin-top:14px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px}
+  .dash-note b{color:var(--ink);font-weight:600}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.7}
+
+  @media (max-width:380px){h1{font-size:34px}.ex-name{font-size:15px}.st-btn{width:36px;height:36px;font-size:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">為網球而練 · 38 歲 · ルネサンス亀戸</div>
+    <h1>把硬的練<span class="accent">更硬</span><br>輕的<span style="color:var(--easy)">留更輕</span></h1>
+    <p class="thesis">網球已經佔住「中等間歇」這一格。其他訓練的任務是補它碰不到的<b>兩端</b>——而不是把全部調成中等，那只會讓整體效率<b>扁平化</b>。</p>
+  </header>
+
+  <div class="spectrum">
+    <div class="spectrum-bar">
+      <div class="marker up" style="left:8%"><span class="lab">游泳</span><div class="dot"></div></div>
+      <div class="marker down" style="left:20%"><span class="lab">輕鬆跑</span><div class="dot"></div></div>
+      <div class="marker up" style="left:48%"><span class="lab">網球 ×2</span><div class="dot"></div></div>
+      <div class="marker down" style="left:94%"><span class="lab">重訓</span><div class="dot"></div></div>
+    </div>
+    <div class="spectrum-ends"><span class="l">◀ 輕鬆極 · 打底/恢復</span><span class="r">強度極 · 力量 ▶</span></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>幾個關鍵結論</h2></div>
+    <div class="principle"><div class="p-tag mid">網球</div><p>已是<b>中等間歇</b>（平均 ~130–135 bpm），佔住中段，<b>不用再加強</b>。之前覺得「很激烈」是被尖峰騙了。</p></div>
+    <div class="principle"><div class="p-tag easy">跑步</div><p>之前卡在<b>閾值灰色地帶</b>（84–86% 最大心率）——太硬當不了恢復、又不是間歇。改成<b>真正的輕鬆跑</b>。</p></div>
+    <div class="principle"><div class="p-tag hard">重訓</div><p>你<b>真正練太輕的地方</b>：之前只有最後一組才咬牙。這裡才該用力推到接近力竭。</p></div>
+    <div class="principle"><div class="p-tag fuel">餘力</div><p>恢復力好（靜息 ~50、不覺得累）＝有本錢。把餘力倒進<b>重訓工作組</b>，別用來把全部調硬。看「<b>有沒有進步</b>」，不是「累不累」。</p></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>一週分配</h2></div>
+    <div class="day easy"><div class="d">一</div><div><div class="act">跑步機・輕鬆跑</div><div class="role">有氧打底＋幫網球日恢復</div></div><div class="pill">Zone 2</div></div>
+    <div class="day mid"><div class="d">二</div><div><div class="act">網球 2h</div><div class="role">中等間歇・專項</div></div><div class="pill">中段</div></div>
+    <div class="day hard"><div class="d">三</div><div><div class="act">重訓・全身</div><div class="role">力量極・推到接近力竭</div></div><div class="pill">硬</div></div>
+    <div class="day"><div class="d">四</div><div><div class="act">全休</div><div class="role">讓硬的能更硬</div></div><div class="pill">Rest</div></div>
+    <div class="day mid"><div class="d">五</div><div><div class="act">網球 2h</div><div class="role">中等間歇・專項</div></div><div class="pill">中段</div></div>
+    <div class="day easy"><div class="d">六</div><div><div class="act">游泳・25m</div><div class="role">主動恢復・輕鬆</div></div><div class="pill">Easy</div></div>
+    <div class="day"><div class="d">日</div><div><div class="act">全休</div><div class="role">恢復</div></div><div class="pill">Rest</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>週三・重訓菜單</h2></div>
+
+    <!-- 1 胸推機 -->
+    <div class="ex">
+      <div class="ex-name">胸推機</div>
+      <div class="ex-cue">握把對準胸部中段、背貼墊；推到手臂快直不鎖死，後兩組推到吃力</div>
+      <div class="ex-controls">
+        <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="e1_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減組">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc" aria-label="加組">+</button></div></div>
+        <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="e1_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減次">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc" aria-label="加次">+</button></div></div>
+        <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="e1_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec" aria-label="減重">−</button><span class="st-mid"><span class="st-val">37.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc" aria-label="加重">+</button></div></div>
+      </div>
+      <div class="ex-last" data-ex="e1">上次：—</div>
+      <a class="ex-video" href="https://www.youtube.com/watch?v=0oo_OOiLEdA" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl">教學影片（ルネサンス官方）</span></a>
+    </div>
+
+    <!-- 2 滑輪下拉 -->
+    <div class="ex">
+      <div class="ex-name">滑輪下拉</div>
+      <div class="ex-cue">用手肘帶、夾背把桿拉到上胸；後兩組接近力竭</div>
+      <div class="ex-controls">
+        <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="e2_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減組">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc" aria-label="加組">+</button></div></div>
+        <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="e2_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減次">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc" aria-label="加次">+</button></div></div>
+        <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="e2_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec" aria-label="減重">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc" aria-label="加重">+</button></div></div>
+      </div>
+      <div class="ex-last" data-ex="e2">上次：—</div>
+      <a class="ex-video" href="https://www.youtube.com/watch?v=771TS7_--7U" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl">教學影片（ルネサンス官方）</span></a>
+    </div>
+
+    <!-- 3 肩推機 -->
+    <div class="ex">
+      <div class="ex-name">肩推機</div>
+      <div class="ex-cue">握把約在肩高，推過頭不鎖死（強化發球）</div>
+      <div class="ex-controls">
+        <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="e3_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減組">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc" aria-label="加組">+</button></div></div>
+        <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="e3_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減次">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc" aria-label="加次">+</button></div></div>
+        <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="e3_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec" aria-label="減重">−</button><span class="st-mid"><span class="st-val">22.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc" aria-label="加重">+</button></div></div>
+      </div>
+      <div class="ex-last" data-ex="e3">上次：—</div>
+      <a class="ex-video" href="https://www.youtube.com/watch?v=TnhIyp4kmO8" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl">教學影片（通用）</span></a>
+    </div>
+
+    <!-- 4 ブトックスブリッジ -->
+    <div class="ex">
+      <div class="ex-name">ブトックスブリッジ（臀橋・髖推）</div>
+      <div class="ex-cue">腳掌踩穩、用臀把髖往上頂到完全伸展，頂端夾緊臀一秒；機械式可安全推到接近力竭</div>
+      <div class="ex-controls">
+        <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="e4_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減組">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc" aria-label="加組">+</button></div></div>
+        <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="e4_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減次">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc" aria-label="加次">+</button></div></div>
+        <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="e4_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec" aria-label="減重">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc" aria-label="加重">+</button></div></div>
+      </div>
+      <div class="ex-last" data-ex="e4">上次：—</div>
+      <a class="ex-video" href="https://www.youtube.com/watch?v=-OTHoA9F1pE" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl">教學影片（ブトックスブリッジ）</span></a>
+    </div>
+
+    <!-- 5 坐姿腿後勾 -->
+    <div class="ex">
+      <div class="ex-name">坐姿腿後勾</div>
+      <div class="ex-cue">腳跟把滾墊往下勾、感受大腿後側；機械式可安全推到力竭</div>
+      <div class="ex-controls">
+        <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="e5_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減組">−</button><span class="st-mid"><span class="st-val">2</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc" aria-label="加組">+</button></div></div>
+        <div class="ctrl"><div class="ctrl-label">次數 10–12</div><div class="stepper" data-key="e5_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減次">−</button><span class="st-mid"><span class="st-val">10</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc" aria-label="加次">+</button></div></div>
+        <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="e5_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec" aria-label="減重">−</button><span class="st-mid"><span class="st-val">30</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc" aria-label="加重">+</button></div></div>
+      </div>
+      <div class="ex-last" data-ex="e5">上次：—</div>
+      <a class="ex-video" href="https://www.youtube.com/watch?v=Qqk6runZCFI" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl">教學影片（ルネサンス官方）</span></a>
+    </div>
+
+    <!-- 6 纜繩站位轉體 -->
+    <div class="ex">
+      <div class="ex-name">纜繩站位轉體（旋轉發力）</div>
+      <div class="ex-cue">正／反手站位各做。腳蹬地 → 轉髖 → 軀幹發力帶手臂、後腳碾轉；轉髖＋胸椎、腰別主動扭。出快收慢、求發力不求力竭</div>
+      <div class="ex-controls">
+        <div class="ctrl"><div class="ctrl-label">組數 / 邊</div><div class="stepper" data-key="e6_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減組">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc" aria-label="加組">+</button></div></div>
+        <div class="ctrl"><div class="ctrl-label">次數 6–10/邊</div><div class="stepper" data-key="e6_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec" aria-label="減次">−</button><span class="st-mid"><span class="st-val">6</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc" aria-label="加次">+</button></div></div>
+        <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper core" data-key="e6_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec" aria-label="減重">−</button><span class="st-mid"><span class="st-val">12.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc" aria-label="加重">+</button></div></div>
+      </div>
+      <div class="ex-last" data-ex="e6">上次：—</div>
+      <a class="ex-video" href="https://www.youtube.com/watch?v=Gwcf4TOj1hc" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl">教學影片（通用）</span></a>
+    </div>
+
+    <button id="doneBtn" class="done-btn">✓ 完成今天訓練（存為「上次」）</button>
+    <button id="resetBtn" class="reset-btn">重設所有組數／次數／重量為預設值</button>
+
+    <div class="rulebox">
+      <h3>力量極 · 怎麼推才對</h3>
+      <ul>
+        <li><b>每個工作組</b>最後一兩下都要吃力（RIR 1–2）——不是只有全場最後一組。</li>
+        <li>第一組可偏輕當熱身；<b>後面是工作組、要硬</b>。</li>
+        <li>雙重漸進：先把<b>次數</b>從範圍低點加到高點 → 都做滿了 → 下次<b>加重</b>（上半身 +2.5–5kg、下半身 +5kg）並把次數退回低點。</li>
+        <li>整份都是機械式，<b>沒人保護也能放心推到接近力竭</b>；只有纜繩站位轉體那項例外，重點是「<b>發力與控制</b>」、不練到力竭。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>週一・跑步機設定</h2></div>
+    <div class="tm">
+      <div class="tm-head"><span class="tm-kind">預設</span><span class="tm-title">輕鬆 Zone 2</span></div>
+      <div class="tm-target">目標心率 <span>120 – 135 bpm</span>　·　看心率，不看配速</div>
+      <div class="setting"><div class="k">起始</div><div class="v">速度 <b>6.0 km/h</b>、坡度 <b>1.0%</b></div></div>
+      <div class="setting"><div class="k">調整</div><div class="v">5 分鐘後看心率：低於 130 就 +0.3~0.5；超過 135 就降速或穿插快走</div></div>
+      <div class="setting"><div class="k">時長</div><div class="v"><b>30–40 分鐘</b></div></div>
+      <div class="setting"><div class="k">手感</div><div class="v">有點汗、很輕鬆、能完整講一句話不喘。慢到覺得「太龜」是正常的。</div></div>
+    </div>
+    <div class="tm alt">
+      <div class="tm-head"><span class="tm-kind">選配</span><span class="tm-title">VO₂max 間歇</span></div>
+      <div class="tm-target">每 1–2 週一次・當天不接網球、身體新鮮時　·　目標 <span>165 – 175 bpm</span></div>
+      <div class="setting"><div class="k">暖身</div><div class="v">8–10 分鐘輕鬆</div></div>
+      <div class="setting"><div class="k">主課</div><div class="v"><b>5 ×（3 分鐘硬 ／ 2 分鐘慢跑恢復）</b></div></div>
+      <div class="setting"><div class="k">設定</div><div class="v">硬段速度 ~7.5–8.5 km/h、坡度 1%；恢復段走路或慢跑 ~4–5 km/h</div></div>
+      <div class="setting"><div class="k">收操</div><div class="v">5 分鐘</div></div>
+      <div class="setting"><div class="k">重點</div><div class="v">這週用它<b>取代</b>輕鬆跑，不是額外加上去。</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>看進步，不看疲勞</h2></div>
+    <div class="dash">
+      <div class="metric"><div class="ico">↑</div><div><div class="mt">重訓重量</div><div class="md">同個動作，幾週後重量有沒有往上加（看卡片「上次」對照）</div></div></div>
+      <div class="metric"><div class="ico">⏱</div><div><div class="mt">網球續航</div><div class="md">2 小時打到後段，腳步與續航有沒有變好</div></div></div>
+      <div class="metric"><div class="ico">↓</div><div><div class="mt">輕鬆跑心率</div><div class="md">同樣配速下，心率有沒有慢慢往下降</div></div></div>
+    </div>
+    <div class="dash-note"><b>追「疲勞感」是陷阱。</b>不痠、不累不代表練太輕——痠痛主要來自重訓，穩定跑步本來就不太會痠。把全部調硬來換累的感覺，正好是會卡關的那條路。</div>
+  </section>
+
+  <footer>
+    練完按「完成今天訓練」，當下數字會存成「上次」，下次打開做對照。<br>
+    調整與紀錄存在本機（同一裝置／同一瀏覽器）。<br>
+    最大心率以 ~183 推估；手環在重訓／跑步會略微高估，看趨勢即可。<br>
+    重量值為參考起點，實際以「最後一兩下吃力」為準。
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var steppers = Array.prototype.slice.call(document.querySelectorAll('.stepper'));
+  var DEFAULTS = {};
+  steppers.forEach(function(s){ DEFAULTS[s.getAttribute('data-key')] = parseFloat(s.querySelector('.st-val').textContent); });
+
+  function fmt(n){ return (n % 1 === 0) ? String(n) : n.toFixed(1); }
+  function collect(){ var o={}; steppers.forEach(function(s){ o[s.getAttribute('data-key')] = parseFloat(s.querySelector('.st-val').textContent); }); return o; }
+  function applyCur(obj){ steppers.forEach(function(s){ var k=s.getAttribute('data-key'); if(obj && obj[k]!=null){ s.querySelector('.st-val').textContent = fmt(obj[k]); } }); }
+
+  var state = { cur:{}, last:null };
+
+  var hasWS=false; try{ hasWS = !!(window.storage && window.storage.get && window.storage.set); }catch(e){ hasWS=false; }
+  function load(cb){
+    if(hasWS){ try{ window.storage.get('plan_v2', false).then(function(r){ cb(r&&r.value?JSON.parse(r.value):null); }).catch(function(){cb(null);}); return; }catch(e){ cb(null); return; } }
+    var v=null; try{ v=localStorage.getItem('plan_v2'); }catch(e){}
+    cb(v?JSON.parse(v):null);
+  }
+  function save(){
+    var j=JSON.stringify(state);
+    if(hasWS){ try{ window.storage.set('plan_v2', j, false); }catch(e){} return; }
+    try{ localStorage.setItem('plan_v2', j); }catch(e){}
+  }
+
+  function renderLast(){
+    Array.prototype.forEach.call(document.querySelectorAll('.ex-last'), function(el){
+      var ex = el.getAttribute('data-ex');
+      var L = state.last;
+      if(!L || L[ex+'_sets']==null){ el.innerHTML = '上次：—'; return; }
+      var unit = (ex==='e6') ? '下/邊' : '下';
+      var str = '上次：<b>' + L[ex+'_sets'] + '組 × ' + fmt(L[ex+'_wt']) + 'kg × ' + L[ex+'_reps'] + unit + '</b>';
+      if(L._date) str += ' · ' + L._date;
+      el.innerHTML = str;
+    });
+  }
+
+  steppers.forEach(function(s){
+    var step=parseFloat(s.getAttribute('data-step')), min=parseFloat(s.getAttribute('data-min'));
+    var valEl=s.querySelector('.st-val');
+    s.querySelectorAll('.st-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var cur=parseFloat(valEl.textContent);
+        cur += (btn.getAttribute('data-act')==='inc'?step:-step);
+        if(cur<min) cur=min;
+        cur=Math.round(cur*10)/10;
+        valEl.textContent=fmt(cur);
+        state.cur=collect(); save();
+      });
+    });
+  });
+
+  var doneBtn=document.getElementById('doneBtn'), DLABEL=doneBtn.textContent, dtimer=null;
+  doneBtn.addEventListener('click', function(){
+    var snap=collect();
+    var d=new Date(); snap._date=(d.getMonth()+1)+'/'+d.getDate();
+    state.last=snap; state.cur=collect(); save(); renderLast();
+    doneBtn.textContent='已存為「上次」 ✓'; doneBtn.classList.add('saved');
+    clearTimeout(dtimer); dtimer=setTimeout(function(){ doneBtn.textContent=DLABEL; doneBtn.classList.remove('saved'); },2000);
+  });
+
+  var resetBtn=document.getElementById('resetBtn'), RLABEL=resetBtn.textContent, armed=false, rtimer=null;
+  resetBtn.addEventListener('click', function(){
+    if(!armed){ armed=true; resetBtn.textContent='再按一次確認重設'; resetBtn.classList.add('armed'); rtimer=setTimeout(function(){armed=false;resetBtn.textContent=RLABEL;resetBtn.classList.remove('armed');},3000); return; }
+    clearTimeout(rtimer); armed=false; resetBtn.textContent=RLABEL; resetBtn.classList.remove('armed');
+    applyCur(DEFAULTS); state.cur=collect(); save();
+  });
+
+  load(function(saved){
+    if(saved && typeof saved==='object'){ state.cur = saved.cur || {}; state.last = saved.last || null; applyCur(state.cur); }
+    else { state.cur = collect(); state.last = null; }
+    renderLast();
+  });
+})();
+</script>
+</body>
+</html>
