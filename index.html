@@ -85,6 +85,12 @@
   .ex-video:hover,.ex-video:focus-visible{border-color:var(--easy)}
   .ex-video .tri{color:var(--hard);font-size:10px}
   .ex-video .lbl{color:var(--easy)}
+  .ex-done-btn{margin-top:12px;width:100%;background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--disp);font-weight:700;font-size:13px;padding:11px;border-radius:9px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .15s}
+  .ex-done-btn.done{background:var(--mid);border-color:var(--mid);color:#0D1218}
+  .ex.is-done{border-color:var(--mid)}
+  .clear-btn{margin-top:16px;width:100%;background:var(--surface-2);border:1px solid var(--line);color:var(--ink);font-family:var(--disp);font-weight:700;font-size:14px;padding:13px;border-radius:11px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .clear-btn:active{filter:brightness(1.2)}
+  .clear-btn.armed{border-color:var(--hard);color:var(--hard)}
 
   .done-btn{margin-top:16px;width:100%;background:var(--hard);border:none;color:#fff;font-family:var(--disp);font-weight:700;font-size:15px;padding:15px;border-radius:11px;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .done-btn:active{filter:brightness(.9)}
@@ -99,6 +105,10 @@
   .run-btn{flex:1;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);font-family:var(--disp);font-weight:700;font-size:14px;padding:13px;border-radius:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .15s}
   .run-btn[data-type="easy"].sel{border-color:var(--easy);background:rgba(56,189,248,.14);color:var(--easy)}
   .run-btn[data-type="interval"].sel{border-color:var(--orange);background:rgba(251,146,60,.14);color:var(--orange)}
+  .quad-block{margin-top:4px;border:1px solid transparent;border-radius:10px}
+  .quad-block.is-done{border-color:var(--mid)}
+  .mq-btn{flex:1;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);font-family:var(--disp);font-weight:700;font-size:14px;padding:11px;border-radius:10px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .15s}
+  .mq-btn.sel{border-color:var(--hard);background:rgba(244,63,94,.12);color:var(--ink)}
 
   .tm{background:var(--surface);border-radius:13px;padding:17px 17px 5px;margin-bottom:12px;border:1px solid var(--line);border-top:4px solid var(--easy)}
   .tm.alt{border-top-color:var(--orange)}
@@ -186,7 +196,7 @@
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e1_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">37.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
       </div>
       <div class="ex-last" data-ex="e1">上次：—</div>
-      <a class="ex-video" href="https://www.youtube.com/watch?v=0oo_OOiLEdA" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl" data-i18n="vid_official">教學影片（ルネサンス官方）</span></a>
+      <button class="ex-done-btn" data-done="e1" data-i18n="exdone_label">✓ 完成這項</button>
     </div>
 
     <div class="ex">
@@ -198,7 +208,7 @@
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e2_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
       </div>
       <div class="ex-last" data-ex="e2">上次：—</div>
-      <a class="ex-video" href="https://www.youtube.com/watch?v=771TS7_--7U" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl" data-i18n="vid_official">教學影片（ルネサンス官方）</span></a>
+      <button class="ex-done-btn" data-done="e2" data-i18n="exdone_label">✓ 完成這項</button>
     </div>
 
     <div class="ex">
@@ -210,7 +220,7 @@
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e3_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">22.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
       </div>
       <div class="ex-last" data-ex="e3">上次：—</div>
-      <a class="ex-video" href="https://www.youtube.com/watch?v=TnhIyp4kmO8" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl" data-i18n="vid_general">教學影片（通用）</span></a>
+      <button class="ex-done-btn" data-done="e3" data-i18n="exdone_label">✓ 完成這項</button>
     </div>
 
     <div class="ex">
@@ -222,7 +232,7 @@
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e4_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
       </div>
       <div class="ex-last" data-ex="e4">上次：—</div>
-      <a class="ex-video" href="https://www.youtube.com/watch?v=-OTHoA9F1pE" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl" data-i18n="vid_butt">教學影片（ブトックスブリッジ）</span></a>
+      <button class="ex-done-btn" data-done="e4" data-i18n="exdone_label">✓ 完成這項</button>
     </div>
 
     <div class="ex">
@@ -234,7 +244,38 @@
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e5_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">30</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
       </div>
       <div class="ex-last" data-ex="e5">上次：—</div>
-      <a class="ex-video" href="https://www.youtube.com/watch?v=Qqk6runZCFI" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl" data-i18n="vid_official">教學影片（ルネサンス官方）</span></a>
+      <button class="ex-done-btn" data-done="e5" data-i18n="exdone_label">✓ 完成這項</button>
+    </div>
+
+    <div class="ex">
+      <div class="ex-name" data-i18n="e7name">下肢推蹬（股四頭）</div>
+      <div class="ex-cue" data-i18n="e7sub">兩台擇一・分開記憶</div>
+      <div class="runlog-btns" style="margin-top:11px">
+        <button class="mq-btn" data-machine="hack" data-i18n="mt_hack">哈克機</button>
+        <button class="mq-btn" data-machine="legpress" data-i18n="mt_legpress">腿推機</button>
+      </div>
+
+      <div class="quad-block" data-machine="hack">
+        <div class="ex-cue" data-i18n="e7h_cue" style="margin-top:12px">肩扛墊、腳與肩同寬踩平台；蹲到大腿接近平行再蹬起，膝蓋順腳尖方向、不內夾；機械式可安全推到接近力竭</div>
+        <div class="ex-controls">
+          <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e7h_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e7h_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e7h_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+        </div>
+        <div class="ex-last" data-ex="e7h">上次：—</div>
+        <button class="ex-done-btn" data-done="e7h" data-i18n="exdone_label">✓ 完成這項</button>
+      </div>
+
+      <div class="quad-block" data-machine="legpress" style="display:none">
+        <div class="ex-cue" data-i18n="e7l_cue" style="margin-top:12px">腳放平台中段與肩同寬、背貼好；下放到膝約 90° 再推回、不鎖死膝蓋；機械式可安全推到接近力竭</div>
+        <div class="ex-controls">
+          <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e7l_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e7l_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e7l_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">60</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+        </div>
+        <div class="ex-last" data-ex="e7l">上次：—</div>
+        <button class="ex-done-btn" data-done="e7l" data-i18n="exdone_label">✓ 完成這項</button>
+      </div>
     </div>
 
     <div class="ex">
@@ -246,10 +287,10 @@
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper core" data-key="e6_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">12.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
       </div>
       <div class="ex-last" data-ex="e6">上次：—</div>
-      <a class="ex-video" href="https://www.youtube.com/watch?v=Gwcf4TOj1hc" target="_blank" rel="noopener"><span class="tri">▶</span><span class="lbl" data-i18n="vid_general">教學影片（通用）</span></a>
+      <button class="ex-done-btn" data-done="e6" data-i18n="exdone_label">✓ 完成這項</button>
     </div>
 
-    <button id="doneBtn" class="done-btn" data-i18n="done_label">✓ 完成今天訓練（存為「上次」）</button>
+    <button id="clearBtn" class="clear-btn" data-i18n="clear_label">↺ 全部切回未完成</button>
     <button id="resetBtn" class="reset-btn" data-i18n="reset_label">重設所有組數／次數／重量為預設值</button>
 
     <div class="rulebox" style="background:linear-gradient(180deg,rgba(244,63,94,.10),rgba(244,63,94,.02));border:1px solid rgba(244,63,94,.30);border-radius:13px;padding:16px 17px;margin-top:14px">
@@ -350,6 +391,13 @@
     lbl_reps_812:'回数 8–12',lbl_reps_1012:'回数 10–12',lbl_reps_610:'回数 6–10/側',
     u_set:'セット',u_rep:'回',
     vid_official:'デモ動画（ルネサンス公式）',vid_general:'デモ動画（一般）',vid_butt:'デモ動画（ブトックスブリッジ）',
+    e7name:'下肢プレス（大腿四頭筋）',e7sub:'2台から選択・別々に記録',
+    mt_hack:'ハックスクワット',mt_legpress:'レッグプレス',
+    e7h_cue:'肩でパッドを担ぎ、足は肩幅でプレートに。太ももが平行近くまでしゃがみ押し上げる。膝はつま先方向、内に入れない。マシン式なので限界近くまで安全に追い込める',
+    e7l_cue:'足はプレート中央に肩幅、背中を密着。膝が約90°まで下ろし押し戻す、膝はロックしない。マシン式なので限界近くまで安全に追い込める',
+    vid_hack:'デモ動画（ハックスクワット）',vid_legpress:'デモ動画（レッグプレス）',
+    clear_label:'↺ すべて未完了に戻す',exdone_label:'✓ この種目を完了',
+    exdone_done:'完了 ✓',clear_confirm:'もう一度押して完了をクリア',
     done_label:'✓ 今日のトレを完了（「前回」に保存）',
     reset_label:'セット／回数／重量をすべて初期値に戻す',
     rule_h3:'筋力の極・正しい追い込み方',
@@ -383,7 +431,7 @@
     done_saved:'「前回」に保存 ✓',reset_confirm:'もう一度押して初期化'
   };
   var ZH_EXTRA = { last_prefix:'上次：',run_last_prefix:'上次跑步：',none:'—',u_rep_side:'下/邊',
-    done_saved:'已存為「上次」 ✓',reset_confirm:'再按一次確認重設' };
+    done_saved:'已存為「上次」 ✓',reset_confirm:'再按一次確認重設',exdone_done:'已完成 ✓',clear_confirm:'再按一次清除完成狀態' };
 
   /* capture Chinese from the page as it currently stands */
   var ZH = {};
@@ -413,17 +461,27 @@
   function collect(){ var o={}; steppers.forEach(function(s){ o[s.getAttribute('data-key')] = parseFloat(s.querySelector('.st-val').textContent); }); return o; }
   function applyCur(obj){ steppers.forEach(function(s){ var key=s.getAttribute('data-key'); if(obj && obj[key]!=null){ s.querySelector('.st-val').textContent = fmt(obj[key]); } }); }
 
-  var state = { cur:{}, last:null, run:null, lang:'zh' };
+  var state = { cur:{}, last:{}, run:null, lang:'zh', quad:'hack', done:{} };
 
   function renderLast(){
     var T = I18N[curLang];
     Array.prototype.forEach.call(document.querySelectorAll('.ex-last'), function(el){
-      var ex = el.getAttribute('data-ex'), L = state.last;
-      if(!L || L[ex+'_sets']==null){ el.innerHTML = T.last_prefix + T.none; return; }
+      var ex = el.getAttribute('data-ex'), rec = state.last ? state.last[ex] : null;
+      if(!rec){ el.innerHTML = T.last_prefix + T.none; return; }
       var unit = (ex==='e6') ? T.u_rep_side : T.u_rep;
-      var str = T.last_prefix + '<b>' + L[ex+'_sets'] + T.u_set + ' × ' + fmt(L[ex+'_wt']) + 'kg × ' + L[ex+'_reps'] + unit + '</b>';
-      if(L._date) str += ' · ' + L._date;
+      var str = T.last_prefix + '<b>' + rec.sets + T.u_set + ' × ' + fmt(rec.wt) + 'kg × ' + rec.reps + unit + '</b>';
+      if(rec.date) str += ' · ' + rec.date;
       el.innerHTML = str;
+    });
+  }
+  function renderDone(){
+    var T = I18N[curLang];
+    Array.prototype.forEach.call(document.querySelectorAll('.ex-done-btn'), function(b){
+      var u = b.getAttribute('data-done'), done = !!(state.done && state.done[u]);
+      b.textContent = done ? T.exdone_done : T.exdone_label;
+      b.classList.toggle('done', done);
+      var unit = b.closest('.quad-block') || b.closest('.ex');
+      if(unit) unit.classList.toggle('is-done', done);
     });
   }
   function renderRun(){
@@ -445,7 +503,7 @@
       var key = el.getAttribute('data-i18n'); if(T[key]!=null) el.innerHTML = T[key];
     });
     document.getElementById('langToggle').textContent = (lang==='zh') ? '日本語' : '繁中';
-    renderLast(); renderRun();
+    renderLast(); renderRun(); renderDone();
     save();
   }
   document.getElementById('langToggle').addEventListener('click', function(){ setLang(curLang==='zh'?'ja':'zh'); });
@@ -466,13 +524,28 @@
     });
   });
 
-  /* ---- done / reset ---- */
-  var doneBtn=document.getElementById('doneBtn'), dtimer=null;
-  doneBtn.addEventListener('click', function(){
-    var snap=collect(); var d=new Date(); snap._date=(d.getMonth()+1)+'/'+d.getDate();
-    state.last=snap; state.cur=collect(); save(); renderLast();
-    doneBtn.textContent=I18N[curLang].done_saved; doneBtn.classList.add('saved');
-    clearTimeout(dtimer); dtimer=setTimeout(function(){ doneBtn.textContent=I18N[curLang].done_label; doneBtn.classList.remove('saved'); },2000);
+  /* ---- per-item complete ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('.ex-done-btn'), function(b){
+    b.addEventListener('click', function(){
+      var u = b.getAttribute('data-done');
+      state.done = state.done || {};
+      if(state.done[u]){ state.done[u] = false; }
+      else {
+        state.done[u] = true;
+        var cur = collect(), d = new Date();
+        state.last = state.last || {};
+        state.last[u] = { sets:cur[u+'_sets'], reps:cur[u+'_reps'], wt:cur[u+'_wt'], date:(d.getMonth()+1)+'/'+d.getDate() };
+      }
+      save(); renderDone(); renderLast();
+    });
+  });
+
+  /* ---- clear all completed ---- */
+  var clearBtn=document.getElementById('clearBtn'), carmed=false, ctimer=null;
+  clearBtn.addEventListener('click', function(){
+    if(!carmed){ carmed=true; clearBtn.textContent=I18N[curLang].clear_confirm; clearBtn.classList.add('armed'); ctimer=setTimeout(function(){carmed=false;clearBtn.textContent=I18N[curLang].clear_label;clearBtn.classList.remove('armed');},3000); return; }
+    clearTimeout(ctimer); carmed=false; clearBtn.textContent=I18N[curLang].clear_label; clearBtn.classList.remove('armed');
+    state.done={}; save(); renderDone();
   });
   var resetBtn=document.getElementById('resetBtn'), armed=false, rtimer=null;
   resetBtn.addEventListener('click', function(){
@@ -490,6 +563,16 @@
     });
   });
 
+  /* ---- quad machine toggle ---- */
+  function showQuad(m){
+    state.quad = m;
+    Array.prototype.forEach.call(document.querySelectorAll('.quad-block'), function(b){ b.style.display = (b.getAttribute('data-machine')===m)?'':'none'; });
+    Array.prototype.forEach.call(document.querySelectorAll('.mq-btn'), function(b){ b.classList.toggle('sel', b.getAttribute('data-machine')===m); });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.mq-btn'), function(b){
+    b.addEventListener('click', function(){ showQuad(b.getAttribute('data-machine')); save(); });
+  });
+
   /* ---- scroll-spy ---- */
   (function(){
     var links = Array.prototype.slice.call(document.querySelectorAll('.toc-scroll a'));
@@ -505,10 +588,17 @@
   })();
 
   /* ---- init ---- */
+  function migrateLast(L){
+    if(!L) return {};
+    var old=false, kk; for(kk in L){ if(L.hasOwnProperty(kk) && kk.indexOf('_')>-1){ old=true; break; } }
+    if(!old) return L;
+    var nl={}; ['e1','e2','e3','e4','e5','e6','e7h','e7l'].forEach(function(x){ if(L[x+'_sets']!=null) nl[x]={sets:L[x+'_sets'],reps:L[x+'_reps'],wt:L[x+'_wt'],date:L._date}; });
+    return nl;
+  }
   load(function(saved){
-    if(saved && typeof saved==='object'){ state.cur=saved.cur||{}; state.last=saved.last||null; state.run=saved.run||null; state.lang=saved.lang||'zh'; applyCur(state.cur); }
-    else { state.cur=collect(); state.last=null; state.run=null; state.lang='zh'; }
-    setLang(state.lang);
+    if(saved && typeof saved==='object'){ state.cur=saved.cur||{}; state.last=migrateLast(saved.last); state.run=saved.run||null; state.lang=saved.lang||'zh'; state.quad=saved.quad||'hack'; state.done=saved.done||{}; applyCur(state.cur); }
+    else { state.cur=collect(); state.last={}; state.run=null; state.lang='zh'; state.quad='hack'; state.done={}; }
+    setLang(state.lang); showQuad(state.quad);
   });
 })();
 </script>
