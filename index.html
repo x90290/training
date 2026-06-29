@@ -23,6 +23,7 @@
   .toc-scroll::-webkit-scrollbar{display:none}
   .toc-scroll a{flex:none;font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;padding:7px 12px;border:1px solid var(--line);border-radius:20px;white-space:nowrap;transition:color .15s,border-color .15s,background .15s;-webkit-tap-highlight-color:transparent}
   .toc-scroll a.active{color:var(--ink);border-color:var(--hard);background:rgba(244,63,94,.12)}
+  .toc-scroll a.pagelink{color:var(--amber);border-color:var(--amber);font-weight:700}
   #langToggle{flex:none;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--easy);background:rgba(56,189,248,.12);border:1px solid var(--easy);border-radius:20px;padding:7px 11px;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
 
   header{padding:30px 0 8px}
@@ -143,8 +144,9 @@
       <a href="#sec1" data-i18n="nav1">重點</a>
       <a href="#sec2" data-i18n="nav2">週課表</a>
       <a href="#sec3" data-i18n="nav3">重訓</a>
-      <a href="#sec4" data-i18n="nav4">跑步機</a>
+      <a href="#sec4" data-i18n="nav4">心肺</a>
       <a href="#sec5" data-i18n="nav5">進度</a>
+      <a href="august-recomp.html" class="pagelink" data-i18n="link_aug">→ 8月計畫</a>
     </div>
     <button id="langToggle">日本語</button>
   </nav>
@@ -305,14 +307,14 @@
   </section>
 
   <section id="sec4">
-    <div class="sec-head"><span class="sec-num">04</span><h2 data-i18n="h2_4">週一・跑步機設定</h2></div>
+    <div class="sec-head"><span class="sec-num">04</span><h2 data-i18n="h2_4">週一・心肺訓練</h2></div>
 
     <div class="runlog">
       <div class="runlog-last" id="runLast">上次跑步：—</div>
-      <div class="runlog-q" data-i18n="run_q">今天跑了哪種？（點一下記住）</div>
+      <div class="runlog-q" data-i18n="run_q">今天做了哪種？（點一下記住）</div>
       <div class="runlog-btns">
         <button class="run-btn" data-type="easy" data-i18n="run_easy_btn">輕鬆跑</button>
-        <button class="run-btn" data-type="interval" data-i18n="run_interval_btn">間歇跑</button>
+        <button class="run-btn" data-type="interval" data-i18n="run_interval_btn">單車間歇</button>
       </div>
     </div>
 
@@ -326,14 +328,16 @@
     </div>
 
     <div class="tm alt">
-      <div class="tm-head"><span class="tm-kind" data-i18n="tm_int_kind">間歇跑</span><span class="tm-title" data-i18n="tm_int_title">硬段 <span style="color:var(--orange)">170–178 bpm</span>（或全力）</span></div>
+      <div class="tm-head"><span class="tm-kind" data-i18n="tm_int_kind">單車間歇</span><span class="tm-title" data-i18n="tm_int_title">硬段 <span style="color:var(--orange)">接近全力</span>（會喘）</span></div>
       <div class="tm-target" data-i18n="tm_int_target">每週最多 1 次・身體新鮮、當天不接網球</div>
-      <div class="setting"><div class="k" data-i18n="k_warm">暖身</div><div class="v" data-i18n="v_int_warm"><b>8–10 分鐘</b>：快走 ~5.0 km/h・坡度 0%（約 2 分）→ 輕鬆慢跑 ~6.0 km/h・坡度 1% → 最後加 2–3 次 15–20 秒加速步</div></div>
-      <div class="setting"><div class="k" data-i18n="k_main">主課</div><div class="v" data-i18n="v_int_main"><b>5 ×（3 分鐘硬 ／ 90 秒緩跑）</b></div></div>
-      <div class="setting"><div class="k" data-i18n="k_hard">硬段</div><div class="v" data-i18n="v_int_hard">坡度 <b>2%</b>、速度 ~7.5–8.5 km/h 起，調到「最後 30 秒很想停」、HR 170–178</div></div>
-      <div class="setting"><div class="k" data-i18n="k_recov">緩段</div><div class="v" data-i18n="v_int_recov">90 秒、坡度 1%、走路或慢跑 ~4–5 km/h，讓 HR 降下來</div></div>
-      <div class="setting"><div class="k" data-i18n="k_cool">收操</div><div class="v" data-i18n="v_int_cool"><b>5 分鐘</b>：慢跑 ~5.0–5.5 km/h・坡度 0%（2–3 分）→ 走路 2 分鐘，HR 降回 &lt;120</div></div>
-      <div class="setting"><div class="k" data-i18n="k_note">重點</div><div class="v" data-i18n="v_int_note">這週用它<b>取代</b>輕鬆跑，不是額外加上去。剛開始循序漸進。</div></div>
+      <div class="setting"><div class="k" data-i18n="k_machine">機台</div><div class="v" data-i18n="v_int_machine">先用臥式（有椅背）熟悉；想更硬再換直立式</div></div>
+      <div class="setting"><div class="k" data-i18n="k_seat">坐墊</div><div class="v" data-i18n="v_int_seat">踩到最低點時膝蓋微彎（約 25–30°），別完全打直</div></div>
+      <div class="setting"><div class="k" data-i18n="k_warm">暖身</div><div class="v" data-i18n="v_int_warm"><b>5–8 分鐘</b>輕鬆踩、轉速（RPM）80–90，把 HR 帶到 120–135</div></div>
+      <div class="setting"><div class="k" data-i18n="k_main">主課</div><div class="v" data-i18n="v_int_main"><b>5 ×（40 秒~1 分用力踩 ／ 90 秒放鬆輕踩）</b></div></div>
+      <div class="setting"><div class="k" data-i18n="k_hard">硬段</div><div class="v" data-i18n="v_int_hard">加阻力＋用力踩到「接近喘不過氣」、HR 160–175，轉速別掉太多</div></div>
+      <div class="setting"><div class="k" data-i18n="k_recov">緩段</div><div class="v" data-i18n="v_int_recov">90 秒、阻力降下來輕鬆踩，讓 HR 掉回 130 上下</div></div>
+      <div class="setting"><div class="k" data-i18n="k_cool">收操</div><div class="v" data-i18n="v_int_cool"><b>5 分鐘</b>輕鬆踩、HR 降回 &lt;120</div></div>
+      <div class="setting"><div class="k" data-i18n="k_note">重點</div><div class="v" data-i18n="v_int_note">別把阻力催到超重硬磨——那變成肌力訓練不是心肺。剛開始循序漸進。</div></div>
     </div>
   </section>
 
@@ -360,13 +364,13 @@
 (function(){
   /* ---- Japanese dictionary (Chinese is read from the page itself) ---- */
   var JA = {
-    nav1:'ポイント',nav2:'週メニュー',nav3:'筋トレ',nav4:'ランニング',nav5:'記録',
+    nav1:'ポイント',nav2:'週メニュー',nav3:'筋トレ',nav4:'有酸素',nav5:'記録',link_aug:'→ 8月プラン',
     eyebrow:'テニスのための体づくり · 38歳 · ルネサンス亀戸',
     h1:'きつい日は<span class="accent">よりきつく</span><br>楽な日は<span style="color:var(--easy)">より楽に</span>',
     thesis:'テニスはすでに「中強度インターバル」の枠を占めている。他のトレーニングの役割は、テニスでは届かない<b>両極</b>を補うこと——すべてを中強度にすると、全体の効率が<b>平坦化</b>するだけ。',
     sp_swim:'水泳',sp_easyrun:'イージー',sp_tennis:'テニス ×2',sp_strength:'筋トレ',
     sp_left:'◀ 楽の極 · 土台/回復',sp_right:'強度の極 · 筋力 ▶',
-    h2_1:'重要な結論',h2_2:'1週間の配分',h2_3:'水曜・筋トレメニュー',h2_4:'月曜・ランニング設定',h2_5:'疲労ではなく進歩を見る',
+    h2_1:'重要な結論',h2_2:'1週間の配分',h2_3:'水曜・筋トレメニュー',h2_4:'月曜・有酸素トレーニング',h2_5:'疲労ではなく進歩を見る',
     ptag1:'テニス',ptag2:'ラン',ptag3:'筋トレ',ptag4:'余力',
     p1:'すでに<b>中強度インターバル</b>（平均 ~130–135 bpm）で中間の枠を占めており、<b>強化は不要</b>。「激しい」と感じたのはピーク値に騙されていただけ。',
     p2:'以前は<b>閾値のグレーゾーン</b>（最大心拍の84–86%）——回復には強すぎ、インターバルでもなかった。<b>本当のイージーラン</b>に変更。',
@@ -405,20 +409,22 @@
     rule2:'1セット目は軽めのウォームアップでよい。<b>以降は本番セット、きつく</b>。',
     rule3:'ダブルプログレッション：まず<b>回数</b>を範囲の下限から上限まで増やす → 全セット到達 → 次回<b>重量を追加</b>（上半身 +2.5–5kg・下半身 +5kg）し、回数を下限に戻す。',
     rule4:'すべてマシン式なので<b>補助者なしでも限界近くまで安全に追い込める</b>。ケーブル立位回旋だけは例外で、ポイントは「<b>パワーとコントロール</b>」、限界までは追い込まない。',
-    run_q:'今日はどちらを走った？（タップで記録）',
-    run_easy_btn:'イージー',run_interval_btn:'インターバル',
+    run_q:'今日はどちらをやった？（タップで記録）',
+    run_easy_btn:'イージー',run_interval_btn:'バイクHIIT',
     tm_easy_kind:'イージー',tm_easy_title:'目標 <span style="color:var(--easy)">120–135 bpm</span>',tm_easy_target:'心拍を見て、ペースは見ない',
     k_start:'開始',v_easy_start:'速度 <b>6.0 km/h</b>・傾斜 <b>1.0%</b>',
     k_adjust:'調整',v_easy_adjust:'5分後に心拍を確認：130未満なら +0.3〜0.5、135超なら減速か早歩きを挟む',
     k_dur:'時間',v_easy_dur:'<b>30–40分</b>（最初の5分は徐々に加速してW-up、最後の2–3分は減速してC-down）',
     k_feel:'感覚',v_easy_feel:'少し汗ばむ程度で楽、一文を息切れせず話せる。「遅すぎ」と感じるくらいで正常。',
-    tm_int_kind:'インターバル',tm_int_title:'高強度区間 <span style="color:var(--orange)">170–178 bpm</span>（または全力）',tm_int_target:'週1回まで・体が新鮮な時・テニスの前日は避ける',
-    k_warm:'W-up',v_int_warm:'<b>8–10分</b>：早歩き ~5.0 km/h・傾斜0%（約2分）→ 軽いジョグ ~6.0 km/h・傾斜1% → 最後に15–20秒の流しを2–3本',
-    k_main:'メイン',v_int_main:'<b>5 ×（3分 高強度／90秒 ジョグ）</b>',
-    k_hard:'高強度',v_int_hard:'傾斜 <b>2%</b>、速度 ~7.5–8.5 km/h から、「最後の30秒は止めたくなる」強度に、心拍 170–178',
-    k_recov:'つなぎ',v_int_recov:'90秒、傾斜1%、歩きか軽いジョグ ~4–5 km/h で心拍を下げる',
-    k_cool:'C-down',v_int_cool:'<b>5分</b>：ジョグ ~5.0–5.5 km/h・傾斜0%（2–3分）→ 歩き2分、心拍を &lt;120 へ',
-    k_note:'ポイント',v_int_note:'その週はイージーランの<b>代わり</b>に行い、追加ではない。最初は段階的に。',
+    tm_int_kind:'バイクHIIT',tm_int_title:'高強度 <span style="color:var(--orange)">ほぼ全力</span>（息が上がる）',tm_int_target:'週1回まで・体が新鮮な時・テニスの前日は避ける',
+    k_machine:'マシン',v_int_machine:'まずリカンベント（背もたれ有）で慣れる。もっと追い込むなら直立式へ',
+    k_seat:'サドル',v_int_seat:'最下点で膝が軽く曲がる（約25–30°）。伸ばし切らない',
+    k_warm:'W-up',v_int_warm:'<b>5–8分</b>軽く回す、ケイデンス（RPM）80–90、心拍を120–135へ',
+    k_main:'メイン',v_int_main:'<b>5 ×（40秒~1分 全力／90秒 軽く回す）</b>',
+    k_hard:'高強度',v_int_hard:'抵抗を上げて「息が上がる」まで全力、心拍 160–175、ケイデンスを落としすぎない',
+    k_recov:'つなぎ',v_int_recov:'90秒、抵抗を下げて軽く回し、心拍を130前後まで下げる',
+    k_cool:'C-down',v_int_cool:'<b>5分</b>軽く回す、心拍を &lt;120 へ',
+    k_note:'ポイント',v_int_note:'抵抗を上げすぎて重く挽くのは筋トレ化するのでNG。最初は段階的に。',
     m1t:'筋トレ重量',m1d:'同じ種目で、数週間後に重量が増えているか（カードの「前回」と比較）',
     m2t:'テニスの持久力',m2d:'2時間の後半でフットワークと持久力が改善したか',
     m3t:'イージーランの心拍',m3d:'同じペースで心拍が徐々に下がっているか',
