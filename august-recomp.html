@@ -95,6 +95,9 @@
   .quad-block.is-done{border-color:var(--mid)}
 
   .clear-btn{margin-top:16px;width:100%;background:var(--surface-2);border:1px solid var(--line);color:var(--ink);font-family:var(--disp);font-weight:700;font-size:14px;padding:13px;border-radius:11px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .start-btn{width:100%;background:var(--mid);border:none;color:#0D1218;font-family:var(--disp);font-weight:800;font-size:16px;padding:15px;border-radius:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;margin:2px 0 14px}
+  .start-btn:active{filter:brightness(1.08)}
+  .start-btn.flash{background:var(--easy)}
   .clear-btn:active{filter:brightness(1.2)}
   .clear-btn.armed{border-color:var(--hard);color:var(--hard)}
   .reset-btn{margin-top:9px;width:100%;background:none;border:1px dashed var(--line);color:var(--muted);font-family:var(--mono);font-size:12px;padding:11px;border-radius:10px;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -174,6 +177,8 @@
 
   <section id="sec4">
     <div class="sec-head"><span class="sec-num">04</span><h2>重訓 A／B</h2></div>
+
+    <button id="startBtn" class="start-btn">▶ 開始今天的訓練</button>
 
     <div class="daytoggle">
       <button class="day-btn" data-day="A">重訓 A・偏推</button>
@@ -349,7 +354,6 @@
 
     </div>
 
-    <button id="clearBtn" class="clear-btn">↺ 全部切回未完成</button>
     <button id="resetBtn" class="reset-btn">重設所有組數／次數／重量為預設值</button>
     <div class="note"><b>選配（網球專項）：</b>下肢偏前後向，行有餘力可<b>選 1–2 個</b>加在 A 或 B 末：側弓步 2×8/邊、站姿提踵 2–3×12、tibialis raise 2×15。別一次全加。</div>
   </section>
@@ -463,12 +467,12 @@
     });
   });
 
-  // clear all done
-  var clearBtn=document.getElementById('clearBtn'), carmed=false, ctimer=null;
-  clearBtn.addEventListener('click', function(){
-    if(!carmed){ carmed=true; clearBtn.textContent='再按一次清除完成狀態'; clearBtn.classList.add('armed'); ctimer=setTimeout(function(){carmed=false;clearBtn.textContent='↺ 全部切回未完成';clearBtn.classList.remove('armed');},3000); return; }
-    clearTimeout(ctimer); carmed=false; clearBtn.textContent='↺ 全部切回未完成'; clearBtn.classList.remove('armed');
+  // start today's session — clear all done flags
+  var startBtn=document.getElementById('startBtn'), sflash=null;
+  startBtn.addEventListener('click', function(){
     state.done={}; save(); renderDone();
+    startBtn.textContent='✓ 開始新一輪！'; startBtn.classList.add('flash');
+    clearTimeout(sflash); sflash=setTimeout(function(){ startBtn.textContent='▶ 開始今天的訓練'; startBtn.classList.remove('flash'); },1500);
   });
   // reset defaults
   var resetBtn=document.getElementById('resetBtn'), rarmed=false, rtimer=null;

@@ -90,6 +90,9 @@
   .ex-done-btn.done{background:var(--mid);border-color:var(--mid);color:#0D1218}
   .ex.is-done{border-color:var(--mid)}
   .clear-btn{margin-top:16px;width:100%;background:var(--surface-2);border:1px solid var(--line);color:var(--ink);font-family:var(--disp);font-weight:700;font-size:14px;padding:13px;border-radius:11px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .start-btn{width:100%;background:var(--mid);border:none;color:#0D1218;font-family:var(--disp);font-weight:800;font-size:16px;padding:15px;border-radius:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;margin:2px 0 14px}
+  .start-btn:active{filter:brightness(1.08)}
+  .start-btn.flash{background:var(--easy)}
   .clear-btn:active{filter:brightness(1.2)}
   .clear-btn.armed{border-color:var(--hard);color:var(--hard)}
 
@@ -188,6 +191,8 @@
 
   <section id="sec3">
     <div class="sec-head"><span class="sec-num">03</span><h2 data-i18n="h2_3">週三・重訓菜單</h2></div>
+
+    <button id="startBtn" class="start-btn" data-i18n="start_label">▶ 開始今天的訓練</button>
 
     <div class="ex">
       <div class="ex-name" data-i18n="e1name">胸推機</div>
@@ -292,7 +297,6 @@
       <button class="ex-done-btn" data-done="e6" data-i18n="exdone_label">✓ 完成這項</button>
     </div>
 
-    <button id="clearBtn" class="clear-btn" data-i18n="clear_label">↺ 全部切回未完成</button>
     <button id="resetBtn" class="reset-btn" data-i18n="reset_label">重設所有組數／次數／重量為預設值</button>
 
     <div class="rulebox" style="background:linear-gradient(180deg,rgba(244,63,94,.10),rgba(244,63,94,.02));border:1px solid rgba(244,63,94,.30);border-radius:13px;padding:16px 17px;margin-top:14px">
@@ -400,7 +404,7 @@
     e7h_cue:'肩でパッドを担ぎ、足は肩幅でプレートに。太ももが平行近くまでしゃがみ押し上げる。膝はつま先方向、内に入れない。マシン式なので限界近くまで安全に追い込める',
     e7l_cue:'足はプレート中央に肩幅、背中を密着。膝が約90°まで下ろし押し戻す、膝はロックしない。マシン式なので限界近くまで安全に追い込める',
     vid_hack:'デモ動画（ハックスクワット）',vid_legpress:'デモ動画（レッグプレス）',
-    clear_label:'↺ すべて未完了に戻す',exdone_label:'✓ この種目を完了',
+    clear_label:'↺ すべて未完了に戻す',start_label:'▶ 今日のトレを開始',start_done:'✓ 新しい回を開始！',exdone_label:'✓ この種目を完了',
     exdone_done:'完了 ✓',clear_confirm:'もう一度押して完了をクリア',
     done_label:'✓ 今日のトレを完了（「前回」に保存）',
     reset_label:'セット／回数／重量をすべて初期値に戻す',
@@ -436,7 +440,7 @@
     last_prefix:'前回：',run_last_prefix:'前回のラン：',none:'—',u_rep_side:'回/側',
     done_saved:'「前回」に保存 ✓',reset_confirm:'もう一度押して初期化'
   };
-  var ZH_EXTRA = { last_prefix:'上次：',run_last_prefix:'上次跑步：',none:'—',u_rep_side:'下/邊',
+  var ZH_EXTRA = { last_prefix:'上次：',run_last_prefix:'上次跑步：',none:'—',u_rep_side:'下/邊',start_done:'✓ 開始新一輪！',
     done_saved:'已存為「上次」 ✓',reset_confirm:'再按一次確認重設',exdone_done:'已完成 ✓',clear_confirm:'再按一次清除完成狀態' };
 
   /* capture Chinese from the page as it currently stands */
@@ -546,12 +550,12 @@
     });
   });
 
-  /* ---- clear all completed ---- */
-  var clearBtn=document.getElementById('clearBtn'), carmed=false, ctimer=null;
-  clearBtn.addEventListener('click', function(){
-    if(!carmed){ carmed=true; clearBtn.textContent=I18N[curLang].clear_confirm; clearBtn.classList.add('armed'); ctimer=setTimeout(function(){carmed=false;clearBtn.textContent=I18N[curLang].clear_label;clearBtn.classList.remove('armed');},3000); return; }
-    clearTimeout(ctimer); carmed=false; clearBtn.textContent=I18N[curLang].clear_label; clearBtn.classList.remove('armed');
+  /* ---- start today's session — clear done flags ---- */
+  var startBtn=document.getElementById('startBtn'), sflash=null;
+  startBtn.addEventListener('click', function(){
     state.done={}; save(); renderDone();
+    startBtn.textContent=I18N[curLang].start_done; startBtn.classList.add('flash');
+    clearTimeout(sflash); sflash=setTimeout(function(){ startBtn.textContent=I18N[curLang].start_label; startBtn.classList.remove('flash'); },1500);
   });
   var resetBtn=document.getElementById('resetBtn'), armed=false, rtimer=null;
   resetBtn.addEventListener('click', function(){
