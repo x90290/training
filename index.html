@@ -68,6 +68,7 @@
   .ex{background:var(--surface);border-radius:13px;padding:15px 16px;margin-bottom:9px;border:1px solid var(--line)}
   .ex-name{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:-.01em}
   .ex-cue{font-size:13px;color:var(--muted);margin-top:5px}
+  .ex-rec{font-family:var(--mono);font-size:11px;color:var(--amber);margin-top:10px;padding:7px 10px;border:1px dashed rgba(251,191,36,.45);border-radius:8px}
   .ex-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
   .ctrl{min-width:0}
   .ctrl.full{grid-column:1 / -1}
@@ -197,7 +198,8 @@
     <div class="ex">
       <div class="ex-name" data-i18n="e1name">胸推機</div>
       <div class="ex-cue" data-i18n="e1cue">握把對準胸部中段、背貼墊；推到手臂快直不鎖死，後兩組推到吃力</div>
-      <div class="ex-controls">
+      <div class="ex-rec" data-i18n="rec_e1">建議：3 組 × 8–12 下 × 37.5kg 起</div>
+        <div class="ex-controls">
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e1_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e1_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e1_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">37.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -209,7 +211,8 @@
     <div class="ex">
       <div class="ex-name" data-i18n="e2name">滑輪下拉</div>
       <div class="ex-cue" data-i18n="e2cue">用手肘帶、夾背把桿拉到上胸；後兩組接近力竭</div>
-      <div class="ex-controls">
+      <div class="ex-rec" data-i18n="rec_e2">建議：3 組 × 8–12 下 × 40kg 起</div>
+        <div class="ex-controls">
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e2_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e2_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e2_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -221,7 +224,8 @@
     <div class="ex">
       <div class="ex-name" data-i18n="e3name">肩推機</div>
       <div class="ex-cue" data-i18n="e3cue">握把約在肩高，推過頭不鎖死（強化發球）</div>
-      <div class="ex-controls">
+      <div class="ex-rec" data-i18n="rec_e3">建議：3 組 × 8–12 下 × 22.5kg 起</div>
+        <div class="ex-controls">
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e3_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e3_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e3_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">22.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -233,7 +237,8 @@
     <div class="ex">
       <div class="ex-name" data-i18n="e4name">ブトックスブリッジ（臀橋・髖推）</div>
       <div class="ex-cue" data-i18n="e4cue">腳掌踩穩、用臀把髖往上頂到完全伸展，頂端夾緊臀一秒；機械式可安全推到接近力竭</div>
-      <div class="ex-controls">
+      <div class="ex-rec" data-i18n="rec_e4">建議：3 組 × 8–12 下 × 40kg 起</div>
+        <div class="ex-controls">
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e4_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e4_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e4_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -245,7 +250,8 @@
     <div class="ex">
       <div class="ex-name" data-i18n="e5name">坐姿腿後勾</div>
       <div class="ex-cue" data-i18n="e5cue">腳跟把滾墊往下勾、感受大腿後側；機械式可安全推到力竭</div>
-      <div class="ex-controls">
+      <div class="ex-rec" data-i18n="rec_e5">建議：2 組 × 10–12 下 × 30kg 起</div>
+        <div class="ex-controls">
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e5_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">2</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_1012">次數 10–12</div><div class="stepper" data-key="e5_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">10</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper wt" data-key="e5_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">30</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -264,6 +270,7 @@
 
       <div class="quad-block" data-machine="hack">
         <div class="ex-cue" data-i18n="e7h_cue" style="margin-top:12px">肩扛墊、腳與肩同寬踩平台；蹲到大腿接近平行再蹬起，膝蓋順腳尖方向、不內夾；機械式可安全推到接近力竭</div>
+        <div class="ex-rec" data-i18n="rec_e7h">建議：3 組 × 8–12 下 × 40kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e7h_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e7h_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -275,6 +282,7 @@
 
       <div class="quad-block" data-machine="legpress" style="display:none">
         <div class="ex-cue" data-i18n="e7l_cue" style="margin-top:12px">腳放平台中段與肩同寬、背貼好；下放到膝約 90° 再推回、不鎖死膝蓋；機械式可安全推到接近力竭</div>
+        <div class="ex-rec" data-i18n="rec_e7l">建議：3 組 × 8–12 下 × 60kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets">組數</div><div class="stepper" data-key="e7l_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_812">次數 8–12</div><div class="stepper" data-key="e7l_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -288,7 +296,8 @@
     <div class="ex">
       <div class="ex-name" data-i18n="e6name">纜繩站位轉體（旋轉發力）</div>
       <div class="ex-cue" data-i18n="e6cue">正／反手站位各做。腳蹬地 → 轉髖 → 軀幹發力帶手臂、後腳碾轉；轉髖＋胸椎、腰別主動扭</div>
-      <div class="ex-controls">
+      <div class="ex-rec" data-i18n="rec_e6">建議：3 組 × 6–10 下/邊 × 12.5kg・不力竭</div>
+        <div class="ex-controls">
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_sets_side">組數 / 邊</div><div class="stepper" data-key="e6_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit" data-i18n="u_set">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl"><div class="ctrl-label" data-i18n="lbl_reps_610">次數 6–10/邊</div><div class="stepper" data-key="e6_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">6</span><span class="st-unit" data-i18n="u_rep">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
         <div class="ctrl full"><div class="ctrl-label" data-i18n="lbl_wt">重量</div><div class="stepper core" data-key="e6_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">12.5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -389,6 +398,7 @@
     d6act:'水泳・25m',d6role:'アクティブ回復・楽',
     d7act:'完全休養',d7role:'回復',
     pill_mid:'中間',pill_hard:'きつい',pill_rest:'休養',pill_easy:'楽',
+    rec_e1:'推奨：3セット × 8–12回 × 37.5kg〜',rec_e2:'推奨：3セット × 8–12回 × 40kg〜',rec_e3:'推奨：3セット × 8–12回 × 22.5kg〜',rec_e4:'推奨：3セット × 8–12回 × 40kg〜',rec_e5:'推奨：2セット × 10–12回 × 30kg〜',rec_e6:'推奨：3セット × 6–10回/側 × 12.5kg・追い込まない',rec_e7h:'推奨：3セット × 8–12回 × 40kg〜',rec_e7l:'推奨：3セット × 8–12回 × 60kg〜',
     e1name:'チェストプレス',e1cue:'グリップを胸の中央に合わせ背中をパッドへ。腕がほぼ伸びるまで（ロックしない）、後半2セットは追い込む',
     e2name:'ラットプルダウン',e2cue:'肘で引き、肩甲骨を寄せてバーを上胸へ。後半2セットは限界近くまで',
     e3name:'ショルダープレス',e3cue:'グリップは肩の高さ、頭上へ押す（ロックしない／サーブ強化）',

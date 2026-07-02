@@ -65,11 +65,13 @@
   .day-btn{flex:1;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);font-family:var(--disp);font-weight:700;font-size:15px;padding:13px;border-radius:11px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .15s}
   .day-btn[data-day="A"].sel{border-color:var(--hard);background:rgba(244,63,94,.14);color:var(--hard)}
   .day-btn[data-day="B"].sel{border-color:var(--orange);background:rgba(251,146,60,.14);color:var(--orange)}
+  .day-btn[data-day="C"].sel{border-color:var(--easy);background:rgba(56,189,248,.14);color:var(--easy)}
 
   .ex{background:var(--surface);border-radius:13px;padding:15px 16px;margin-bottom:9px;border:1px solid var(--line)}
   .ex.is-done{border-color:var(--mid)}
   .ex-name{font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:-.01em}
   .ex-cue{font-size:13px;color:var(--muted);margin-top:5px}
+  .ex-rec{font-family:var(--mono);font-size:11px;color:var(--amber);margin-top:10px;padding:7px 10px;border:1px dashed rgba(251,191,36,.45);border-radius:8px}
   .vid{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-family:var(--mono);font-size:11px;color:var(--easy);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:6px 11px;-webkit-tap-highlight-color:transparent}
   .vid:active{background:var(--surface-2)}
   .ex-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
@@ -165,14 +167,14 @@
 
   <section id="sec3">
     <div class="sec-head"><span class="sec-num">03</span><h2>主力週課表</h2></div>
-    <div class="day rec"><div class="d">一</div><div><div class="act">主動恢復／輕鬆有氧</div><div class="role">輕鬆游／臥式車 20–30 分；狀態很好才做「C 微劑量」</div></div><div class="pill">輕鬆</div></div>
+    <div class="day rec"><div class="d">一</div><div><div class="act">保養 C（預設排入）＋輕鬆有氧</div><div class="role">面拉、外旋、提踵、抗旋轉，全程 RIR 3；<b>黃燈就跳過</b></div></div><div class="pill">輕</div></div>
     <div class="day t"><div class="d">二</div><div><div class="act">網球 2h</div><div class="role">中等間歇・專項</div></div><div class="pill">中段</div></div>
     <div class="day A"><div class="d">三</div><div><div class="act">重訓 A（全身・偏推＋膝）</div><div class="role">胸推、下拉、肩推、哈克/腿推、臀橋、核心</div></div><div class="pill">硬</div></div>
-    <div class="day rec"><div class="d">四</div><div><div class="act">主動恢復</div><div class="role">伸展、活動度、輕鬆動一動</div></div><div class="pill">輕鬆</div></div>
+    <div class="day rec"><div class="d">四</div><div><div class="act">主動恢復</div><div class="role">伸展、活動度；想碰球就輕鬆技術網球 ≤1h</div></div><div class="pill">輕鬆</div></div>
     <div class="day t"><div class="d">五</div><div><div class="act">網球 2h</div><div class="role">中等間歇・專項</div></div><div class="pill">中段</div></div>
     <div class="day B"><div class="d">六</div><div><div class="act">重訓 B（全身・偏拉＋後鏈）</div><div class="role">划船、上斜胸推、腿後勾、後三角/Face pull、核心</div></div><div class="pill">硬</div></div>
     <div class="day"><div class="d">日</div><div><div class="act">全休</div><div class="role">恢復＝長肌肉的地方</div></div><div class="pill">休</div></div>
-    <div class="note">重訓排在<b>週三／週六</b>：重腿（A）到週五網球隔約 48h、到週二網球隔約 72h，符合「重腿不接在網球前一天」。週一、週四只輕鬆動。</div>
+    <div class="note">重訓排在<b>週三／週六</b>：重腿（A）到網球隔 48–72h。<b>硬日固定 4 天</b>（重訓 A/B＋硬網球二/五）——想多打的量全走「輕鬆技術網球」，天天碰球都行。</div>
   </section>
 
   <section id="sec4">
@@ -183,14 +185,18 @@
     <div class="daytoggle">
       <button class="day-btn" data-day="A">重訓 A・偏推</button>
       <button class="day-btn" data-day="B">重訓 B・偏拉</button>
+      <button class="day-btn" data-day="C">保養 C</button>
     </div>
+
+    <div class="note" style="margin-bottom:12px">虛線框＝教練建議值。<b>組數別超過</b>（週總量有上限）；次數做到區間上限就<b>加重</b>；<b>重量超過建議起點＝進步</b>，越多越好。</div>
 
     <div class="day-block" data-day="A">
 
       <div class="ex">
         <div class="ex-name">胸推機</div>
         <div class="ex-cue">握把對準胸部中段、推到手臂快直不鎖死，後兩組推到吃力</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%81%E3%82%A7%E3%82%B9%E3%83%88%E3%83%97%E3%83%AC%E3%82%B9" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%81%E3%82%A7%E3%82%B9%E3%83%88%E3%83%97%E3%83%AC%E3%82%B9%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 8–12 下 × 37.5kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="a_chest_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="a_chest_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -203,7 +209,8 @@
       <div class="ex">
         <div class="ex-name">滑輪下拉</div>
         <div class="ex-cue">用手肘帶、夾背把桿拉到上胸；讓 A 日也有「拉」、不變成純推</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%A9%E3%83%83%E3%83%88%E3%83%97%E3%83%AB%E3%83%80%E3%82%A6%E3%83%B3" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%A9%E3%83%83%E3%83%88%E3%83%97%E3%83%AB%E3%83%80%E3%82%A6%E3%83%B3%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組（W2 起 4 組）× 8–12 下 × 40kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="a_lat_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="a_lat_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -216,7 +223,8 @@
       <div class="ex">
         <div class="ex-name">肩推機</div>
         <div class="ex-cue">握把約在肩高，推過頭不鎖死（強化發球）</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%82%B7%E3%83%A7%E3%83%AB%E3%83%80%E3%83%BC%E3%83%97%E3%83%AC%E3%82%B9" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%82%B7%E3%83%A7%E3%83%AB%E3%83%80%E3%83%BC%E3%83%97%E3%83%AC%E3%82%B9%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 8–12 下 × 22.5kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="a_sho_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="a_sho_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -235,8 +243,9 @@
         </div>
         <div class="quad-block" data-machine="hack">
           <div class="ex-cue" style="margin-top:10px">肩扛墊、蹲到大腿接近平行再蹬起，膝順腳尖方向、不內夾</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%8F%E3%83%83%E3%82%AF%E3%82%B9%E3%82%AF%E3%83%AF%E3%83%83%E3%83%88" target="_blank" rel="noopener">▶ 官方教學影片</a>
-          <div class="ex-controls">
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%8F%E3%83%83%E3%82%AF%E3%82%B9%E3%82%AF%E3%83%AF%E3%83%83%E3%83%88%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+          <div class="ex-rec">建議：3 組 × 8–12 下 × 40kg 起</div>
+        <div class="ex-controls">
             <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="a_hack_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
             <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="a_hack_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
             <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="a_hack_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">40</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -246,8 +255,9 @@
         </div>
         <div class="quad-block" data-machine="legpress" style="display:none">
           <div class="ex-cue" style="margin-top:10px">腳放平台中段與肩同寬、背貼好；下放到膝約 90° 再推回、不鎖死膝蓋</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%AC%E3%83%83%E3%82%B0%E3%83%97%E3%83%AC%E3%82%B9" target="_blank" rel="noopener">▶ 官方教學影片</a>
-          <div class="ex-controls">
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%AC%E3%83%83%E3%82%B0%E3%83%97%E3%83%AC%E3%82%B9%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+          <div class="ex-rec">建議：3 組 × 8–12 下 × 60kg 起</div>
+        <div class="ex-controls">
             <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="a_leg_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
             <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="a_leg_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
             <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper wt" data-key="a_leg_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">60</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -260,7 +270,8 @@
       <div class="ex">
         <div class="ex-name">ブトックスブリッジ（臀橋）</div>
         <div class="ex-cue">用臀把髖頂到完全伸展、頂端夾緊臀一秒；機械式可安全推到接近力竭</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%96%E3%83%88%E3%83%83%E3%82%AF%E3%82%B9%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%96%E3%83%88%E3%83%83%E3%82%AF%E3%82%B9%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 8–12 下 × 40kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="a_glute_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="a_glute_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -273,7 +284,8 @@
       <div class="ex">
         <div class="ex-name">纜繩站位轉體（核心）</div>
         <div class="ex-cue">正／反手站位各做。轉髖帶軀幹、後腳碾轉；求發力與控制、不練到力竭</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%20%E3%83%84%E3%82%A4%E3%82%B9%E3%83%88%20%E4%BD%93%E5%B9%B9" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%20%E3%83%84%E3%82%A4%E3%82%B9%E3%83%88%20%E4%BD%93%E5%B9%B9%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 6–10 下/邊 × 12.5kg・不力竭</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數 / 邊</div><div class="stepper" data-key="a_core_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 6–10/邊</div><div class="stepper" data-key="a_core_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">6</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -290,7 +302,8 @@
       <div class="ex">
         <div class="ex-name">坐姿划船（ローイング）</div>
         <div class="ex-cue">挺胸夾背、把把手拉向腹部，不聳肩借力</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%AD%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%AD%E3%83%BC%E3%82%A4%E3%83%B3%E3%82%B0%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組（W2 起 4 組）× 8–12 下 × 35kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="b_row_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="b_row_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -303,7 +316,8 @@
       <div class="ex">
         <div class="ex-name">上斜胸推（インクライン）</div>
         <div class="ex-cue">椅背微上斜、推向斜上方，練上胸與肩前；補 A 日平推的變化</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%81%E3%82%A7%E3%82%B9%E3%83%88%E3%83%97%E3%83%AC%E3%82%B9" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%81%E3%82%A7%E3%82%B9%E3%83%88%E3%83%97%E3%83%AC%E3%82%B9%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 8–12 下 × 25kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="b_incl_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 8–12</div><div class="stepper" data-key="b_incl_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">8</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -316,7 +330,8 @@
       <div class="ex">
         <div class="ex-name">坐姿腿後勾</div>
         <div class="ex-cue">腳跟把滾墊往下勾、感受大腿後側；補 A 日股四頭、平衡前後鏈</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%AC%E3%83%83%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%AB" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%AC%E3%83%83%E3%82%B0%E3%82%AB%E3%83%BC%E3%83%AB%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 10–12 下 × 30kg 起</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="b_curl_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 10–12</div><div class="stepper" data-key="b_curl_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">10</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -329,7 +344,8 @@
       <div class="ex">
         <div class="ex-name">後三角／Face pull（リアデルト）</div>
         <div class="ex-cue">把手往兩側／斜後打開、夾肩胛＋外旋，別聳肩借力。網球肩最該補的防傷項</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%AA%E3%82%A2%E3%83%87%E3%83%AB%E3%83%88" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%AA%E3%82%A2%E3%83%87%E3%83%AB%E3%83%88%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 12–15 下 × 15kg・輕重量高次數</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="b_rear_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 12–15</div><div class="stepper" data-key="b_rear_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">12</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -342,7 +358,8 @@
       <div class="ex">
         <div class="ex-name">ロータリートーソ（核心轉體）</div>
         <div class="ex-cue">坐穩固定下半身、用核心轉動軀幹、控制慢回；補強網球旋轉</div>
-        <a class="vid" href="https://www.youtube.com/@RENAISSANCEchannel/search?query=%E3%83%AD%E3%83%BC%E3%82%BF%E3%83%AA%E3%83%BC%E3%83%88%E3%83%BC%E3%82%BD" target="_blank" rel="noopener">▶ 官方教學影片</a>
+        <a class="vid" href="https://www.youtube.com/results?search_query=%E3%83%AB%E3%83%8D%E3%82%B5%E3%83%B3%E3%82%B9%20%E3%83%AD%E3%83%BC%E3%82%BF%E3%83%AA%E3%83%BC%E3%83%88%E3%83%BC%E3%82%BD%20%E4%BD%BF%E3%81%84%E6%96%B9" target="_blank" rel="noopener">▶ 教學影片</a>
+        <div class="ex-rec">建議：3 組 × 12 下/邊 × 20kg・控制慢回</div>
         <div class="ex-controls">
           <div class="ctrl"><div class="ctrl-label">組數 / 邊</div><div class="stepper" data-key="b_torso_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">3</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
           <div class="ctrl"><div class="ctrl-label">次數 12/邊</div><div class="stepper" data-key="b_torso_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">12</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
@@ -350,6 +367,64 @@
         </div>
         <div class="ex-last" data-ex="b_torso">上次：—</div>
         <button class="ex-done-btn" data-done="b_torso">✓ 完成這項</button>
+      </div>
+
+    </div>
+
+    <div class="day-block" data-day="C" style="display:none">
+
+      <div class="note" style="margin-bottom:10px"><b>保養日規則：</b>全程 RIR 3、不練腿、不力竭。它是讓身體更耐用的保養，不是第三個引擎。<b>黃燈日直接跳過。</b></div>
+
+      <div class="ex">
+        <div class="ex-name">纜繩面拉（Face pull）</div>
+        <div class="ex-cue">繩索拉向臉、手肘抬高，末端外旋夾肩胛；網球肩保養的主菜</div>
+        <div class="ex-rec">建議：2 組 × 15–20 下 × 10kg・RIR 3</div>
+        <div class="ex-controls">
+          <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="c_face_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">2</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl"><div class="ctrl-label">次數 15–20</div><div class="stepper" data-key="c_face_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">15</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper core" data-key="c_face_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">10</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+        </div>
+        <div class="ex-last" data-ex="c_face">上次：—</div>
+        <button class="ex-done-btn" data-done="c_face">✓ 完成這項</button>
+      </div>
+
+      <div class="ex">
+        <div class="ex-name">纜繩外旋</div>
+        <div class="ex-cue">手肘貼身彎 90°、前臂往外轉到底、慢慢回；重量很輕就有效，別貪</div>
+        <div class="ex-rec">建議：2 組 × 12–15 下/邊 × 5kg・RIR 3</div>
+        <div class="ex-controls">
+          <div class="ctrl"><div class="ctrl-label">組數 / 邊</div><div class="stepper" data-key="c_rot_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">2</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl"><div class="ctrl-label">次數 12–15</div><div class="stepper" data-key="c_rot_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">12</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper core" data-key="c_rot_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">5</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+        </div>
+        <div class="ex-last" data-ex="c_rot">上次：—</div>
+        <button class="ex-done-btn" data-done="c_rot">✓ 完成這項</button>
+      </div>
+
+      <div class="ex">
+        <div class="ex-name">站姿提踵</div>
+        <div class="ex-cue">踮到最高停一秒、慢慢下；小腿與足踝＝網球的煞車與起動</div>
+        <div class="ex-rec">建議：2 組 × 12–15 下 × 20kg・RIR 3</div>
+        <div class="ex-controls">
+          <div class="ctrl"><div class="ctrl-label">組數</div><div class="stepper" data-key="c_calf_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">2</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl"><div class="ctrl-label">次數 12–15</div><div class="stepper" data-key="c_calf_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">12</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl full"><div class="ctrl-label">重量（徒手＝0）</div><div class="stepper core" data-key="c_calf_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">20</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+        </div>
+        <div class="ex-last" data-ex="c_calf">上次：—</div>
+        <button class="ex-done-btn" data-done="c_calf">✓ 完成這項</button>
+      </div>
+
+      <div class="ex">
+        <div class="ex-name">Pallof press（抗旋轉）</div>
+        <div class="ex-cue">纜繩在側、雙手把手推到胸前伸直停 3 秒，不被轉走；慢回</div>
+        <div class="ex-rec">建議：2 組 × 10 下/邊 × 10kg・RIR 3</div>
+        <div class="ex-controls">
+          <div class="ctrl"><div class="ctrl-label">組數 / 邊</div><div class="stepper" data-key="c_pallof_sets" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">2</span><span class="st-unit">組</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl"><div class="ctrl-label">次數 10/邊</div><div class="stepper" data-key="c_pallof_reps" data-step="1" data-min="1"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">10</span><span class="st-unit">下</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+          <div class="ctrl full"><div class="ctrl-label">重量</div><div class="stepper core" data-key="c_pallof_wt" data-step="0.5" data-min="0"><button class="st-btn" data-act="dec">−</button><span class="st-mid"><span class="st-val">10</span><span class="st-unit">kg</span></span><button class="st-btn" data-act="inc">+</button></div></div>
+        </div>
+        <div class="ex-last" data-ex="c_pallof">上次：—</div>
+        <button class="ex-done-btn" data-done="c_pallof">✓ 完成這項</button>
       </div>
 
     </div>
@@ -363,7 +438,7 @@
     <div class="info">
       <div class="row"><div class="k">蛋白質</div><div class="v"><b>體重(kg) × 1.6–2.0 g／天</b>。每餐一個手掌大小的肉／魚／蛋，不夠就補一杯乳清。這是 recomp 不能省的一項。</div></div>
       <div class="row"><div class="k">熱量</div><div class="v">維持、<b>不刻意節食</b>。配合足量蛋白＋漸進負荷＝體態重組的鐵三角。</div></div>
-      <div class="row"><div class="k">睡眠</div><div class="v"><b>7–9 小時</b>。一個人住的最大優勢，對長肌肉的幫助不輸訓練。</div></div>
+      <div class="row"><div class="k">睡眠</div><div class="v"><b>00:00 前入睡、7:30 起床 → 7–7.5h</b>。品質很好（深睡 26–34%），弱點只在長度：短眠夜多半是 00:30 後才睡。半夜醒來後手環偶爾漏記回睡，起床時間對不上記憶就自行修正。</div></div>
       <div class="row"><div class="k">心肺</div><div class="v">這四週<b>單車間歇先停</b>，週一／週四只做輕鬆恢復；高強度交給網球。</div></div>
       <div class="row"><div class="k">碳水</div><div class="v"><b>重訓日前後別太低</b>。你有網球＋腿部重訓，碳水不足訓練品質會先掉。</div></div>
     </div>
@@ -375,10 +450,10 @@
     <div class="metric"><div class="ico">↑</div><div><div class="mt">重訓重量／次數</div><div class="md">每項想辦法贏過「上次」——這條線往上＝計畫有效</div></div></div>
     <div class="metric"><div class="ico">⟲</div><div><div class="mt">腰圍／鏡子</div><div class="md">recomp 是同體重變更精實，皮尺與鏡子比體重計準</div></div></div>
     <div class="metric"><div class="ico">▤</div><div><div class="mt">InBody</div><div class="md">你那間免費，月初月底各量一次看肌肉量／體脂趨勢</div></div></div>
-    <div class="metric"><div class="ico">↓</div><div><div class="mt">靜息心率</div><div class="md">你的基準約 58（睡眠最低可到 43）；連 2 天升到 63 以上＝累積疲勞，該減量</div></div></div>
+    <div class="metric"><div class="ico">↓</div><div><div class="mt">睡眠平均心率（主訊號）</div><div class="md">看 Mi Fitness「平均睡眠時心拍数」：你的基準 ~58、≤60 正常。「安静時」日常在 54–64 亂跳，只當參考</div></div></div>
     <div class="metric"><div class="ico">☾</div><div><div class="mt">睡眠／主觀恢復</div><div class="md">睡 &lt;6.5h 不加量；主觀恢復（1–5 分）≤2 就少 1–2 組</div></div></div>
     <div class="metric"><div class="ico">!</div><div><div class="mt">關節痛／痠痛</div><div class="md">關節痛 ≥4/10 停該動作；痠痛超過 72h 還明顯＝量太高</div></div></div>
-    <div class="note"><b>紅黃綠燈（基準靜息 58）：</b>綠（RHR ~58、睡 ≥7h、無關節痛、表現穩）→ 正常練；黃（睡差、RHR 61–62、痠痛偏高）→ 不加重、少 1–2 組；紅（RHR ≥63 連 2 天、關節痛 ≥4、表現掉 &gt;10%、連續睡差）→ 改恢復或全休。多項合看，別只盯 RHR。</div>
+    <div class="note"><b>紅黃綠燈（看睡眠平均心率，基準 ~58）：</b>綠 ≤60、睡 ≥7h、無關節痛、表現穩 → 正常練；黃 61–64、或大負荷日隔晚單晚 ≥65、痠痛偏高 → 不加重、少 1–2 組；紅 <b>連兩晚 ≥63</b>、或無明顯原因單晚 ≥65、關節痛 ≥4、表現掉 &gt;10% → 改恢復或全休。多項合看。</div>
     <div class="note"><b>不看體重計。</b>recomp 體重可能幾乎不動——掉肌肉換來的體重下降才是失敗。</div>
   </section>
 
@@ -393,7 +468,7 @@
 
 <script>
 (function(){
-  var SIDE = { a_core:1, b_torso:1 }; // 每邊計
+  var SIDE = { a_core:1, b_torso:1, c_pallof:1 }; // 每邊計
   var steppers = Array.prototype.slice.call(document.querySelectorAll('.stepper'));
   var DEFAULTS = {};
   steppers.forEach(function(s){ DEFAULTS[s.getAttribute('data-key')] = parseFloat(s.querySelector('.st-val').textContent); });
@@ -505,8 +580,8 @@
   // week phase
   var PHASE = {
     1:['W1・漸進期（8/11–17）','建立 <b>2 次／週</b>重訓頻率、網球維持 2 次、心肺只輕鬆。<b>RIR 2–3、不追 PR</b>，先讓身體適應雙倍頻率。'],
-    2:['W2・推進期（8/18–24）','正式推進，主要動作 <b>RIR 1–2</b>。先把次數加到範圍高點，做滿再加重（雙重漸進）。'],
-    3:['W3・主力期（8/25–31）','<b>總組數不再加</b>，只追品質與小幅進步。每肌群週硬組數上限：胸 6–8／背 8–10／股四頭 5–7／臀腿後 6–8。睡飽顧蛋白。'],
+    2:['W2・推進期（8/18–24）','正式推進，主要動作 <b>RIR 1–2</b>。<b>背部（下拉／划船）各加到 4 組</b>（週背 8 組），其餘先加次數、做滿再加重。'],
+    3:['W3・主力期（8/25–31）','守住上限（胸 6–8／背 8–10／股四頭 5–7／臀腿後 6–8），追品質與小幅進步。<b>連 5 天綠燈</b>→可挑 1–2 動作加到 4 組；黃燈→退回 3 組。'],
     4:['W4・減量期（9/1–6）','重訓 <b>1 次</b>、組數比 W3 降 <b>40–50%</b>、用 85–90% 重量、<b>RIR 3–4、不測 PR</b>。讓 W2–3 的刺激被吸收、乾淨收尾。']
   };
   function selectWeek(w){
